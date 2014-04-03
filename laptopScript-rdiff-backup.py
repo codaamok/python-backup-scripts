@@ -34,7 +34,7 @@ def main():
 			if ping == 1 and RuAtHome == 0:
 				print '    Connection OK, initiating backup...'
 				transfer = os.system('rdiff-backup --terminal-verbosity=5 --exclude "**.dropbox**" --exclude "**.ini**" --remote-schema "ssh -C %s -p1019 rdiff-backup --server" C:/Users/Adam/Dropbox username@domain.com::/path/to/directory')
-				eleteOld = os.system('rdiff-backup --remove-older-than 2W --remote-schema "ssh %s -p1019 rdiff-backup --server" username@domain.com::/path/to/directory')
+				deleteOld = os.system('rdiff-backup --remove-older-than 2W --remote-schema "ssh %s -p1019 rdiff-backup --server" username@domain.com::/path/to/directory')
 			else:
 				if ping == 0:
 					print '    The server is currently unreachable.'
@@ -42,7 +42,7 @@ def main():
 					print '    Please try again later when you\'re home.'
 		else:
 			transfer = os.system('rdiff-backup --terminal-verbosity=5 --exclude "**.dropbox**" --exclude "**.ini**" --remote-schema "ssh -C %s -p1019 rdiff-backup --server" C:/Users/Adam/Dropbox username@domain.com::/path/to/directory')
-			eleteOld = os.system('rdiff-backup --remove-older-than 2W --remote-schema "ssh %s -p1019 rdiff-backup --server" username@domain.com::/path/to/directory')
+			deleteOld = os.system('rdiff-backup --remove-older-than 2W --remote-schema "ssh %s -p1019 rdiff-backup --server" username@domain.com::/path/to/directory')
 	else:
 		print "    OK, will try again tomorrow."
 	# To do: output total time and read relevant parts from logs
