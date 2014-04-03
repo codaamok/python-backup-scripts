@@ -36,6 +36,7 @@ def main():
 				startTime = datetime.datetime.now()
 				rsync = os.system("rsync -avuih --rsync-path='rsync --log-file=/mnt/disk1/Adam/rsync.log' --exclude '.dropbox*' --exclude 'desktop.ini' --exclude 'Thumbs.db'  --delete --progress --chmod u+rwx -e 'ssh -p 1019 -i /cygdrive/c/Users/User/.ssh/id_rsa' '/cygdrive/c/Users/User/Dropbox/' username@domain.com::/path/to/directory")
 				finishTime = datetime.datetime.now() - startTime
+				print("Total time: " + str(finishTime))
 			else:
 				if ping == 0:
 					print '    The server is currently unreachable.'
@@ -46,9 +47,9 @@ def main():
 			startTime = datetime.datetime.now()
 			rsync = os.system("rsync -avuih --rsync-path='rsync --log-file=/mnt/disk1/Adam/rsync.log' --exclude '.dropbox*' --exclude 'desktop.ini' --delete --progress --chmod u+rwx -e 'ssh -p 1019 -i /cygdrive/c/Users/User/.ssh/id_rsa' '/cygdrive/c/Users/User/Dropbox/' username@domain.com::/path/to/directory")
 			finishTime = datetime.datetime.now() - startTime
+			print("Total time: " + str(finishTime))
 	else:
 		print "    OK, will try again tomorrow."
-	print("Total time: " + str(finishTime))
 	time.sleep(5)
 			
 main()
