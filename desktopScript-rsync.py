@@ -32,12 +32,12 @@ def lineBreak():
 	print " +----------------------------------------------------------------------------+"
 
 def testConnection():
-	ping = os.system('powershell.exe "Test-Connection -q 192.168.0.125 | Out-Null"')
+	ping = os.system('powershell.exe "Test-Connection -q ###.###.###.### | Out-Null"')
 	return ping
 
 def rsync():
 	startTime = datetime.datetime.now()
-	os.system("rsync -rvuih --rsync-path='rsync --log-file=/media/exthdd1/rsync.log' --delete --progress -e 'ssh -p 1019 -i /cygdrive/c/Users/Adam/.ssh/private-passphrase' '/cygdrive/c/Users/Adam/Desktop' pi@192.168.0.125:/media/exthdd1/backup/")
+	os.system("rsync -rvuih --rsync-path='rsync --log-file=/###/###/rsync.log' --delete --progress -e 'ssh -p #### -i /cygdrive/c/Users/###/###/###' '/cygdrive/c/Users/###/###' pi@###.###.###.###:/###/###/###/")
 	finishTime = datetime.datetime.now() - startTime
 	return finishTime
 	
