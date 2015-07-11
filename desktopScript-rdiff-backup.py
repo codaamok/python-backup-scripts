@@ -38,7 +38,7 @@ def testConnection():
 	
 def rdiffbackup():
 	startTime = datetime.datetime.now()
-	os.system('rdiff-backup --terminal-verbosity=5 --remote-schema "ssh %s -p#### -i C:/Users/###/###/### rdiff-backup --server" C:/Users/###/### pi@###.###.0.###::/###/###/###')
+	os.system('rdiff-backup --terminal-verbosity=5 --remote-schema "ssh %s -p#### -i C:/Users/###/###/### rdiff-backup --server" C:/Users/###/### pi@###.###.###.###::/###/###/###')
 	finishTime = datetime.datetime.now() - startTime
 	return finishTime
 
