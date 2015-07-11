@@ -4,7 +4,8 @@ import os
 os.system("cls")
 def main():
 	lineBreak()
-	print " |                            Raspberry Pi Backup                             |"
+	print " |                            RaspberryPi Backup                              |"
+	print " |                                  rsync                                     |"
 	lineBreak()
 	print " +  Before you backup, it is wise to ensure you're not downloading, uploading +"
 	print " +  or transferring to/from the RPi. Doing any of those during backup         +"
