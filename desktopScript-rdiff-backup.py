@@ -4,7 +4,8 @@ import datetime
 os.system("cls")
 def main():
 	lineBreak()
-	print " |                            Raspberry Pi Backup                             |"
+	print " |                            RaspberryPi Backup                              |"
+	print " |                               rdiff-backup                                 |"
 	lineBreak()
 	print " +  Before you backup, it is wise to ensure you're not downloading, uploading +"
 	print " +  or transferring to/from the RPi. Doing any of those during backup         +"
@@ -16,7 +17,7 @@ def main():
 		x = raw_input("    Please enter y or n: ")
 	lineBreak()
 	if x.upper() == "Y":
-		print "    Checking if RPi is online...""
+		print "    Checking if RPi is online..."
 		ping = testConnection()
 		if ping == 0:
 			print '    Connection OK, initiating backup...'
@@ -26,25 +27,19 @@ def main():
 	else:
 		print "    OK, will try again tomorrow."
 	print("Total time: " + str(finishTime))
-	deleteOld()
 	time.sleep(5)
 			
 def lineBreak():
 	print " +----------------------------------------------------------------------------+"			
 
-def testConnection();
-	ping = os.system('powershell.exe "Test-Connection -q 192.168.0.5 | Out-Null"')
+def testConnection():
+	ping = os.system('powershell.exe "Test-Connection -q ###.###.###.### | Out-Null"')
 	return ping
 	
-def rdiffbackup();
+def rdiffbackup():
 	startTime = datetime.datetime.now()
-	os.system('rdiff-backup --terminal-verbosity=5 --remote-schema "ssh %s -p1019 rdiff-backup --server" C:/Users/Adam/Dropbox username@domain.com::/path/to/directory')
+	os.system('rdiff-backup --terminal-verbosity=5 --remote-schema "ssh %s -p#### -i C:/Users/###/###/### rdiff-backup --server" C:/Users/###/### pi@###.###.0.###::/###/###/###')
 	finishTime = datetime.datetime.now() - startTime
 	return finishTime
 
-def deleteOld();
-	print("Deleting old archives...")
-	os.system('rdiff-backup --remove-older-than 2W --remote-schema "ssh %s -p1019 rdiff-backup --server" username@domain.com::/path/to/directory')
-	print("Completed")
-	
 main()
