@@ -38,7 +38,7 @@ def testConnection():
 
 def rsync():
 	startTime = datetime.datetime.now()
-	os.system("rsync -rvuih --rsync-path='rsync --log-file=/###/###/rsync.log' --delete --progress -e 'ssh -p #### -i /cygdrive/c/Users/###/###/###' '/cygdrive/c/Users/###/###' pi@###.###.###.###:/###/###/###/")
+	os.system("rsync -arvuih --rsync-path='rsync --log-file=/###/###/rsync.log' --delete --progress -e 'ssh -p #### -i /cygdrive/c/Users/###/###/###' '/cygdrive/c/Users/###/###' pi@###.###.###.###:/###/###/###/")
 	finishTime = datetime.datetime.now() - startTime
 	return finishTime
 	
